@@ -1,0 +1,181 @@
+.article {
+
+  section {
+    min-height: 90vh;
+
+    div > * {
+      color: $white;
+    }
+
+    a {
+      clear: both;
+    }
+  }
+
+  &__line {
+    width: 100%;
+    display: flex;
+    padding-bottom: 2.5vh;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid $white;
+
+    @include media(phone) {
+      padding-bottom: 1vh;
+    }
+
+    p {
+      font-family: $bold;
+
+      &:first-of-type {
+        font-size: em(100);
+
+        @include media(phone) {
+          font-size: em(70);
+        }
+
+        @include media(biggest) {
+          font-size: em(110);
+        }
+      }
+
+      &:last-of-type {
+        font-size: em(30);
+
+        @include media(phone) {
+          text-align: right;
+          font-size: em(20);
+        }
+
+        @include media(biggest) {
+          font-size: em(40);
+        }
+      }
+
+      span {
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &__content {
+    div {
+      @include media(laptop) {
+        width: 47.5%;
+
+        &:first-of-type {
+          float: left;
+        }
+
+        &:last-of-type {
+          float: right;
+        }
+      }
+
+      p {
+        font-family: $light;
+      }
+    }
+
+    ul {
+      @extend %list;
+    }
+
+    p {
+      @extend %paragraph;
+    }
+
+    .big {
+      @extend %biggest;
+
+      &--one {
+        @extend %biggest--one;
+      }
+
+      &--two {
+        @extend %biggest--two;
+      }
+
+      &--three {
+        @extend %biggest--three;
+      }
+    }
+
+    .button {
+      position: relative;
+      border-top: 1px solid;
+      padding-right: 5%;
+      padding-top: 1vh;
+      margin-top: 10vh;
+      float: left;
+      width: 95%;
+
+      @include media(phone) {
+        padding-right: 20%;
+        margin-top: 5vh;
+        width: 80%;
+      }
+
+      &::after {
+        @include transition($time);
+        transform: rotate(0);
+        font-family: $light;
+        position: absolute;
+        font-size: em(30);
+        content: '+';
+        right: 0;
+        top: 0;
+      }
+
+      &.opened::after {
+        transform: rotate(45deg);
+      }
+    }
+
+    .toggle {
+      width: 100%;
+    }
+
+    .small {
+      font-size: em(30);
+      font-family: $bold;
+
+      @include media(phone) {
+        font-size: em(25);
+      }
+
+      @include media(biggest) {
+        font-size: em(40);
+      }
+    }
+
+    .light {
+      font-family: $light;
+
+      &--one {
+        font-size: em(30);
+
+        @include media(phone) {
+          font-size: em(20);
+        }
+
+        @include media(biggest) {
+          font-size: em(40);
+        }
+      }
+
+      &--two {
+        line-height: 1.4;
+        font-size: em(60);
+
+        @include media(phone) {
+          font-size: em(40);
+        }
+
+        @include media(biggest) {
+          font-size: em(70);
+        }
+      }
+    }
+  }
+}

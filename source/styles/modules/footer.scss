@@ -1,0 +1,115 @@
+.footer {
+  display: flex;
+  margin-top: 10vh;
+
+  @include media(phone) {
+    margin-top: 2.5vh;
+  }
+
+  .container {
+    padding: 3vh 0;
+    border-top: 1px solid $white;
+
+    @include media(phone) {
+      padding: 2.5vh 0;
+    }
+  }
+
+  // logotype
+  &__logo {
+    float: left;
+    width: 100px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+
+    @include media(phone) {
+      height: auto;
+      width: 100px;
+    }
+
+    object {
+      width: 100%;
+    }
+  }
+
+  // footer menu
+  &__menu {
+    height: 100%;
+    display: flex;
+
+    @include media(phone) {
+      margin: 10vh 0 5vh;
+      text-align: left;
+      height: initial;
+      float: none;
+      width: 100%;
+    }
+
+    @include media(laptop) {
+      justify-content: center;
+      align-items: center;
+    }
+
+    li {
+      @include media(phone) {
+        padding-top: 10px;
+        display: block;
+
+        &:not(:last-of-type) {
+          margin-right: 5vw;
+        }
+      }
+
+      a {
+        color: $white;
+        font-family: $light;
+        font-size: em(26);
+        display: flex;
+        height: 150px;
+        cursor: none;
+        width: 150px;
+
+        @include media(phone) {
+          font-size: em(18);
+          height: auto;
+          width: auto;
+        }
+
+        @include media(laptop) {
+          justify-content: center;
+          align-items: center;
+        }
+
+        &:hover {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+
+  // block with social networks
+  &__social {
+    float: right;
+    display: flex;
+
+    @include media(laptop) {
+      margin-top: 57.5px;
+    }
+
+    a {
+      &:not(:last-of-type) {
+        margin-right: 1vw;
+
+        @include media(phone) {
+          margin-right: 2.5vw;
+        }
+      }
+
+      object {
+        width: 35px;
+        cursor: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+// global variables
+$browser-context: 16;
+$spacing: .5px;
+$time: .2s;
+
+// colors
+$highlight: rgba(0, 0, 0, 0);
+$secondary: #fafbfc;
+$primary: #24292e;
+$border: #e1e4e8;
+$white: #fff;
+$black: #000;
+
+// media queries
+$phone: 768px;
+$tablet: 1024px;
+$laptop: 1200px;
+$desktop: 1440px;
+$biggest: 2560px;
+$container: 100%;
+
+// font
+$bold: 'harmonia bold';
+$light: 'harmonia light';
+$regular: 'harmonia regular';

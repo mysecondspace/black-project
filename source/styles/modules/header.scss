@@ -1,0 +1,179 @@
+.header {
+  height: 100vh;
+  background-image: linear-gradient(to bottom, transparent, transparent, $black);
+
+  // panel with logotype and menu
+  &__hood {
+    display: flex;
+    margin-top: 2vh;
+
+    @include media(phone) {
+
+      // mobile menu burger button
+      &--button {
+        float: right;
+
+        &.open {
+          @include image-retina('/../images/open.png', '/../images/open-2x.png');
+        }
+
+        &.close {
+          @include image-retina('/../images/close.png', '/../images/close-2x.png');
+          display: none;
+        }
+      }
+    }
+
+    // logotype
+    &--logo {
+      float: left;
+      display: flex;
+      align-items: center;
+
+      @include media(laptop) {
+        height: 150px;
+      }
+    }
+
+    // hood menu
+    &--menu {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include media(phone) {
+        -webkit-overflow-scrolling: touch;
+        background-color: $black;
+        top: calc(42px + 2vh);
+        overflow-y: scroll;
+        position: absolute;
+        padding-top: 2vh;
+        display: none;
+        height: 100vh;
+        width: 100%;
+        left: 0;
+      }
+
+      li {
+        @include media(phone) {
+          position: relative;
+          padding-top: 10px;
+          display: block;
+        }
+
+        @include media(laptop) {
+          &:last-of-type {
+            display: none;
+          }
+        }
+
+        a {
+          font-family: $bold;
+          color: $white;
+          display: flex;
+          height: 150px;
+          cursor: none;
+          width: 150px;
+
+          @include media(phone) {
+            font-size: em(26);
+            height: auto;
+            width: auto;
+          }
+
+          @include media(laptop) {
+            justify-content: center;
+            align-items: center;
+          }
+
+          &:hover {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+
+    // action button
+    &--action {
+      @include border-radius(25px);
+      padding: 12px 20px 10px;
+      font-family: $bold;
+      color: $white;
+      float: right;
+      cursor: none;
+      margin-top: 54.5px;
+      background-size: 500% 100%;
+      transition: all $time * 5 ease-in-out;
+      background-image: linear-gradient(to right, transparent, transparent, $white, $white, $white, $white);
+
+      @include media(phone) {
+        display: none;
+      }
+
+      &:hover {
+        color: $black;
+        border-color: transparent;
+        background-position: 100% 0;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  // panel with bottom elements
+  &__cellar {
+    float: left;
+    width: 100%;
+    margin-top: 15vh;
+
+    @include media(phone) {
+      margin-top: 10vh;
+    }
+
+    @include media(biggest) {
+      margin-top: 20vh;
+    }
+
+    .container {
+      @include media(phone) {
+        z-index: -1;
+      }
+
+      > * {
+        color: $white;
+        font-weight: normal;
+      }
+    }
+
+    &--title {
+      width: 80%;
+      line-height: 1.2;
+      font-size: em(50);
+      font-family: $bold;
+
+      @include media(phone) {
+        font-size: em(30);
+      }
+
+      @include media(biggest) {
+        font-size: em(60);
+        width: 60%;
+      }
+    }
+
+    &--subtitle {
+      width: 65%;
+      margin-top: 3vh;
+      font-size: em(20);
+      line-height: 1.6;
+      font-family: $light;
+
+      @include media(biggest) {
+        width: 45%;
+      }
+    }
+  }
+}

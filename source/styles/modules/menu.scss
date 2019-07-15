@@ -1,0 +1,28 @@
+.menu {
+  border-top: 1px solid $border;
+  background-color: $white;
+  text-align: center;
+  padding: 24px 0;
+
+  @include media(phone) {
+    display: none;
+  }
+
+  li {
+    margin-left: 25px;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    a {
+      @include transition($time);
+      border-bottom: 1px solid transparent;
+      color: $primary;
+
+      &:hover {
+        border-bottom: 1px solid;
+      }
+    }
+  }
+}

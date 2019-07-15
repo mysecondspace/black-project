@@ -1,0 +1,260 @@
+%paragraph {
+  font-size: em(20);
+  line-height: 1.6;
+  clear: both;
+
+  @include media(phone) {
+    font-size: em(18);
+  }
+
+  span {
+    font-size: em(8);
+    font-family: $light;
+
+    @include media(phone) {
+      font-size: em(13);
+    }
+
+    @include media(biggest) {
+      font-size: em(6.5);
+    }
+  }
+
+  &.height {
+    line-height: .8;
+
+    @include media(phone) {
+      line-height: 1.3;
+
+    }
+
+    @include media(biggest) {
+      line-height: .65;
+    }
+  }
+}
+
+%list {
+  margin-top: 5vh;
+
+  li {
+    list-style-type: disc;
+    font-family: $bold;
+    margin-left: 60px;
+    font-size: em(20);
+
+    @include media(phone) {
+      margin-left: 18px;
+    }
+
+    @include media(biggest) {
+      margin-left: 50px;
+      font-size: em(25);
+    }
+  }
+
+  &.none li {
+    list-style-type: none;
+  }
+}
+
+%biggest {
+  font-family: $bold;
+
+  &--one {
+    line-height: 1.4;
+    font-size: em(40);
+    padding-top: 10vh;
+
+    @include media(phone) {
+      font-size: em(22);
+    }
+
+    @include media(biggest) {
+      font-size: em(50);
+      width: 80%;
+    }
+  }
+
+  &--two {
+    width: 80%;
+    line-height: 1.4;
+    font-size: em(60);
+    padding-top: 10vh;
+
+    @include media(phone) {
+      font-size: em(35);
+    }
+
+    @include media(biggest) {
+      font-size: em(70);
+    }
+  }
+
+  &--three {
+    width: 90%;
+    line-height: 1.3;
+    font-size: em(80);
+
+    @include media(phone) {
+      font-size: em(45);
+    }
+
+    @include media(biggest) {
+      font-size: em(90);
+      width: 80%;
+    }
+  }
+}
+
+#canvas {
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+  opacity: .5;
+  z-index: -1;
+  left: 0;
+  top: 0;
+}
+
+form {
+  width: 50%;
+
+  @include media(phone) {
+    width: 100%;
+  }
+
+  input {
+    border: 0;
+    float: left;
+    color: $white;
+    font-size: em(20);
+    border-bottom: 1px solid;
+    width: calc(100% - 40px);
+    border-radius: 0;
+    background: none;
+    padding: 20px;
+    outline: none;
+    cursor: none;
+
+    &:not(:last-of-type) {
+      margin-bottom: 1vh;
+    }
+  }
+}
+
+.modal {
+  background: $black;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  display: none;
+  z-index: 999;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+
+  > * {
+    color: $white;
+  }
+
+  a {
+    @include transition($time);
+    position: absolute;
+    width: 25px;
+    top: 10vh;
+    right: 0;
+
+    @include media(phone) {
+      right: 1vw;
+      top: 3vh;
+    }
+
+    @include media(laptop) {
+      opacity: .5;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  p {
+    @extend %paragraph;
+  }
+
+  ul {
+    @extend %list;
+  }
+
+  .big {
+    @extend %biggest;
+
+    &--one {
+      @extend %biggest--one;
+    }
+
+    &--two {
+      @extend %biggest--two;
+    }
+
+    &--three {
+      @extend %biggest--three;
+    }
+  }
+
+  .container {
+    padding-bottom: 10vh;
+    height: 100%;
+
+    @include media(phone) {
+      -webkit-overflow-scrolling: touch;
+      overflow-y: scroll;
+    }
+  }
+}
+
+.cursor {
+  @include media(laptop) {
+    pointer-events: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+
+  &--small {
+    top: -2.5px;
+    left: -2.5px;
+    z-index: 11000;
+    background: $white;
+    border-radius: 50%;
+    height: 5px;
+    width: 5px;
+  }
+
+  &--canvas {
+    width: 100vw;
+    height: 100vh;
+    z-index: 12000;
+  }
+}
+
+.padding {
+  &--05 {
+    padding-top: 5vh;
+  }
+
+  &--10 {
+    padding-top: 10vh;
+  }
+
+  &--20 {
+    padding-top: 20vh;
+  }
+}
+
+.underline {
+  text-decoration: underline;
+}
