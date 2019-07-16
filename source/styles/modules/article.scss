@@ -1,5 +1,4 @@
 .article {
-
   section {
     min-height: 90vh;
 
@@ -9,6 +8,14 @@
 
     a {
       clear: both;
+    }
+
+    &.white {
+      background-color: $white;
+
+      div > * {
+        color: $black;
+      }
     }
   }
 
@@ -44,7 +51,7 @@
 
         @include media(phone) {
           text-align: right;
-          font-size: em(20);
+          font-size: em(18);
         }
 
         @include media(biggest) {

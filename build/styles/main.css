@@ -113,7 +113,7 @@ article { -ms-flex: 1 0 auto; flex: 1 0 auto; }
 @media only screen and (max-width: 767px) { .modal .big--three, .article__content .big--three { font-size: 2.8125em; } }
 @media only screen and (min-width: 2560px) { .modal .big--three, .article__content .big--three { font-size: 5.625em; width: 80%; } }
 
-#canvas { position: absolute; display: block; height: 100%; width: 100%; opacity: .5; z-index: -1; left: 0; top: 0; }
+#canvas { position: fixed; display: block; height: 100%; width: 100%; opacity: .5; z-index: -1; left: 0; top: 0; }
 
 form { width: 50%; }
 @media only screen and (max-width: 767px) { form { width: 100%; } }
@@ -142,6 +142,8 @@ form input:not(:last-of-type) { margin-bottom: 1vh; }
 .article section { min-height: 90vh; }
 .article section div > * { color: #fff; }
 .article section a { clear: both; }
+.article section.white { background-color: #fff; }
+.article section.white div > * { color: #000; }
 .article__line { width: 100%; display: -ms-flexbox; display: flex; padding-bottom: 2.5vh; -ms-flex-align: baseline; align-items: baseline; -ms-flex-pack: justify; justify-content: space-between; border-bottom: 1px solid #fff; }
 @media only screen and (max-width: 767px) { .article__line { padding-bottom: 1vh; } }
 .article__line p { font-family: "harmonia bold"; }
@@ -149,7 +151,7 @@ form input:not(:last-of-type) { margin-bottom: 1vh; }
 @media only screen and (max-width: 767px) { .article__line p:first-of-type { font-size: 4.375em; } }
 @media only screen and (min-width: 2560px) { .article__line p:first-of-type { font-size: 6.875em; } }
 .article__line p:last-of-type { font-size: 1.875em; }
-@media only screen and (max-width: 767px) { .article__line p:last-of-type { text-align: right; font-size: 1.25em; } }
+@media only screen and (max-width: 767px) { .article__line p:last-of-type { text-align: right; font-size: 1.125em; } }
 @media only screen and (min-width: 2560px) { .article__line p:last-of-type { font-size: 2.5em; } }
 .article__line p span { text-transform: uppercase; }
 @media only screen and (min-width: 1024px) { .article__content div { width: 47.5%; }
@@ -172,18 +174,16 @@ form input:not(:last-of-type) { margin-bottom: 1vh; }
 @media only screen and (max-width: 767px) { .article__content .light--two { font-size: 2.5em; } }
 @media only screen and (min-width: 2560px) { .article__content .light--two { font-size: 4.375em; } }
 
-.header { height: 100vh; background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), #000000); }
-.header__hood { display: -ms-flexbox; display: flex; margin-top: 2vh; }
-@media only screen and (max-width: 767px) { .header__hood--button { float: right; }
-  .header__hood--button.open { background-image: url(/../images/open.png); height: 32px; width: 32px; background-repeat: no-repeat; } }
-@media only screen and (max-width: 767px) and (min-device-pixel-ratio: 2), only screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2), only screen and (max-width: 767px) and (min-resolution: 2dppx) { .header__hood--button.open { background-size: 32px 32px; background-image: url(/../images/open-2x.png); } }
-@media only screen and (max-width: 767px) { .header__hood--button.close { background-image: url(/../images/close.png); height: 32px; width: 32px; background-repeat: no-repeat; display: none; } }
-@media only screen and (max-width: 767px) and (min-device-pixel-ratio: 2), only screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2), only screen and (max-width: 767px) and (min-resolution: 2dppx) { .header__hood--button.close { background-size: 32px 32px; background-image: url(/../images/close-2x.png); } }
-
+.header { z-index: 1; height: 100vh; }
+.header__hood { z-index: 2; width: 100%; display: -ms-flexbox; display: flex; margin-top: 2vh; }
+@media only screen and (min-width: 1024px) { .header__hood { position: fixed; } }
+.header__hood--button { position: absolute; display: none; width: 25px; right: 0; top: 1vh; }
+@media only screen and (max-width: 767px) { .header__hood--button { display: block; } }
+.header__hood--button.close { display: none; }
 .header__hood--logo { float: left; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; }
 @media only screen and (min-width: 1024px) { .header__hood--logo { height: 150px; } }
 .header__hood--menu { height: 100%; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; -ms-flex-pack: center; justify-content: center; }
-@media only screen and (max-width: 767px) { .header__hood--menu { -webkit-overflow-scrolling: touch; background-color: #000; top: calc(42px + 2vh); overflow-y: scroll; position: absolute; padding-top: 2vh; display: none; height: 100vh; width: 100%; left: 0; } }
+@media only screen and (max-width: 767px) { .header__hood--menu { -webkit-overflow-scrolling: touch; top: calc(42px + 2vh); overflow-y: scroll; position: absolute; padding-top: 10vh; display: none; height: auto; width: 100%; left: 0; } }
 @media only screen and (max-width: 767px) { .header__hood--menu li { position: relative; padding-top: 10px; display: block; } }
 @media only screen and (min-width: 1024px) { .header__hood--menu li:last-of-type { display: none; } }
 .header__hood--menu li a { font-family: "harmonia bold"; color: #fff; display: -ms-flexbox; display: flex; height: 150px; cursor: none; width: 150px; }
@@ -194,9 +194,9 @@ form input:not(:last-of-type) { margin-bottom: 1vh; }
 @media only screen and (max-width: 767px) { .header__hood--action { display: none; } }
 .header__hood--action:hover { color: #000; border-color: transparent; background-position: 100% 0; }
 .header__hood--action:focus { outline: none; }
-.header__cellar { float: left; width: 100%; margin-top: 15vh; }
-@media only screen and (max-width: 767px) { .header__cellar { margin-top: 10vh; } }
-@media only screen and (min-width: 2560px) { .header__cellar { margin-top: 20vh; } }
+.header__cellar { float: left; width: 100%; margin-top: 30vh; }
+@media only screen and (max-width: 767px) { .header__cellar { margin-top: 20vh; } }
+@media only screen and (min-width: 2560px) { .header__cellar { margin-top: 30vh; } }
 @media only screen and (max-width: 767px) { .header__cellar .container { z-index: -1; } }
 .header__cellar .container > * { color: #fff; font-weight: normal; }
 .header__cellar--title { width: 80%; line-height: 1.2; font-size: 3.125em; font-family: "harmonia bold"; }

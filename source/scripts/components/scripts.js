@@ -11,16 +11,18 @@ $(document).on("click", "a[href='#modal']", function(event) {
   // only for mobile version
   $(".open").css("display", "none");
   $(".close").css("display", "block");
+  $(".header__cellar").css("display", "none");
 });
 
 // close modal window
 function hide() {
   $("body").css("overflow", "auto");
-  $("#menu, .modal").fadeOut(300);
+  $("#menu, .modal").css("display", "none");
 
   // only for mobile version
   $(".open").css("display", "block");
   $(".close").css("display", "none");
+  $(".header__cellar").css("display", "block");
 }
 
 // smooth scroll anchors

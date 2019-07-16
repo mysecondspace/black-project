@@ -1,26 +1,32 @@
 .header {
+  z-index: 1;
   height: 100vh;
-  background-image: linear-gradient(to bottom, transparent, transparent, $black);
 
   // panel with logotype and menu
   &__hood {
+    z-index: 2;
+    width: 100%;
     display: flex;
     margin-top: 2vh;
 
-    @include media(phone) {
+    @include media(laptop) {
+      position: fixed;
+    }
 
-      // mobile menu burger button
-      &--button {
-        float: right;
+    // mobile menu burger button
+    &--button {
+      position: absolute;
+      display: none;
+      width: 25px;
+      right: 0;
+      top: 1vh;
 
-        &.open {
-          @include image-retina('/../images/open.png', '/../images/open-2x.png');
-        }
+      @include media(phone) {
+        display: block;
+      }
 
-        &.close {
-          @include image-retina('/../images/close.png', '/../images/close-2x.png');
-          display: none;
-        }
+      &.close {
+        display: none;
       }
     }
 
@@ -44,13 +50,12 @@
 
       @include media(phone) {
         -webkit-overflow-scrolling: touch;
-        background-color: $black;
         top: calc(42px + 2vh);
         overflow-y: scroll;
         position: absolute;
-        padding-top: 2vh;
+        padding-top: 10vh;
         display: none;
-        height: 100vh;
+        height: auto;
         width: 100%;
         left: 0;
       }
@@ -127,14 +132,14 @@
   &__cellar {
     float: left;
     width: 100%;
-    margin-top: 15vh;
+    margin-top: 30vh;
 
     @include media(phone) {
-      margin-top: 10vh;
+      margin-top: 20vh;
     }
 
     @include media(biggest) {
-      margin-top: 20vh;
+      margin-top: 30vh;
     }
 
     .container {
