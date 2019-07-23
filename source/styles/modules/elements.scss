@@ -118,6 +118,16 @@
   top: 0;
 }
 
+.gradient {
+  @include background(linear-gradient(top, $black, transparent));
+  position: fixed;
+  height: 186px;
+  width: 100%;
+  z-index: 1;
+  left: 0;
+  top: 0;
+}
+
 form {
   width: 50%;
 

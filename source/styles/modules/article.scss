@@ -9,14 +9,6 @@
     a {
       clear: both;
     }
-
-    &.white {
-      background-color: $white;
-
-      div > * {
-        color: $black;
-      }
-    }
   }
 
   &__line {
@@ -66,7 +58,7 @@
   }
 
   &__content {
-    div {
+    div:not(.background) {
       @include media(laptop) {
         width: 47.5%;
 
@@ -81,6 +73,22 @@
 
       p {
         font-family: $light;
+      }
+    }
+
+    a {
+      display: grid;
+      width: fit-content;
+      text-align: center;
+
+      img {
+        transform: scale(.5);
+      }
+
+      span {
+        margin-top: 30px;
+        font-family: $bold;
+        text-transform: uppercase;
       }
     }
 
@@ -182,6 +190,30 @@
         @include media(biggest) {
           font-size: em(70);
         }
+      }
+    }
+
+    .background {
+      position: relative;
+
+      &::before {
+        content: '';
+        background-color: $background;
+        position: absolute;
+        height: 100%;
+        width: 120%;
+        z-index: -1;
+        left: -10%;
+        top: 0;
+
+        @include media(biggest) {
+          left: -17.5%;
+          width: 135%;
+        }
+      }
+
+      * {
+        color: $black;
       }
     }
   }

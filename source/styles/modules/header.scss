@@ -1,5 +1,5 @@
 .header {
-  z-index: 1;
+  z-index: 2;
   height: 100vh;
 
   // panel with logotype and menu
@@ -7,7 +7,7 @@
     z-index: 2;
     width: 100%;
     display: flex;
-    margin-top: 2vh;
+    padding: 2vh 0;
 
     @include media(laptop) {
       position: fixed;
