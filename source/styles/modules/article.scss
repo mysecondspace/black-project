@@ -78,10 +78,14 @@
 
     a {
       display: grid;
-      width: fit-content;
       text-align: center;
 
+      @include media(laptop) {
+        width: fit-content;
+      }
+
       img {
+        margin: 0 auto;
         transform: scale(.5);
       }
 
@@ -198,13 +202,16 @@
 
       &::before {
         content: '';
-        background-color: $background;
         position: absolute;
         height: 100%;
         width: 120%;
-        z-index: -1;
         left: -10%;
         top: 0;
+
+        @include media(phone) {
+          left: -5.5%;
+          width: 111%;
+        }
 
         @include media(biggest) {
           left: -17.5%;
@@ -213,7 +220,31 @@
       }
 
       * {
-        color: $black;
+        position: inherit;
+      }
+
+      &--white {
+        &::before {
+          background-color: $white;
+        }
+
+        p:last-of-type {
+          border-top: 1px solid $black;
+        }
+
+        * {
+          color: $black;
+        }
+      }
+
+      &--black {
+        &::before {
+          background-color: $black;
+        }
+
+        * {
+          color: $white;
+        }
       }
     }
   }

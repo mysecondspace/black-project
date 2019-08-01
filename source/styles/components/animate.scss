@@ -3,6 +3,34 @@
   animation-fill-mode: both;
 }
 
+@keyframes background-in {
+  0% {
+    background-color: transparent;
+  }
+
+  100% {
+    background-color: $black;
+  }
+}
+
+.background-in {
+  animation-name: background-in;
+}
+
+@keyframes background-out {
+  0% {
+    background-color: $black;
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+.background-out {
+  animation-name: background-out;
+}
+
 @keyframes fade-in {
   0% {
     opacity: 0;

@@ -42,6 +42,26 @@ $('a[href^="#"]').click(function() {
   return false;
 });
 
+
+// black menu
+jQuery(function($) {
+
+    var $nav = $(".header__hood");
+    var $win = $(window);
+    var winH = $win.height();
+
+    $win.on("scroll", function () {
+        if ($(this).scrollTop() > winH ) {
+            $nav.addClass("scroll");
+        } else {
+            $nav.removeClass("scroll");
+        }
+    }).on("resize", function() {
+       winH = $(this).height();
+    });
+
+});
+
 // toggle list
 var list = $(".toggle"), link = $(".button");
 

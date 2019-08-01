@@ -13,6 +13,20 @@
       position: fixed;
     }
 
+    &::before {
+      content: '';
+      position: absolute;
+      animation: background-out $time * 2 forwards;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+    }
+
+    &.scroll::before {
+      animation: background-in $time * 2 forwards;
+    }
+
     // mobile menu burger button
     &--button {
       position: absolute;
