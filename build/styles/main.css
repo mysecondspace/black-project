@@ -217,9 +217,9 @@ form input:not(:last-of-type) { margin-bottom: 1vh; }
 @media only screen and (max-width: 767px) { .header__hood--menu li a { font-size: 1.625em; height: auto; width: auto; } }
 @media only screen and (min-width: 1024px) { .header__hood--menu li a { -ms-flex-pack: center; justify-content: center; -ms-flex-align: center; align-items: center; } }
 .header__hood--menu li a:hover { border-bottom: 0; }
-.header__hood--action { border-radius: 25px; padding: 12px 20px 10px; font-family: "harmonia bold"; color: #fff; float: right; cursor: none; margin-top: 54.5px; background-size: 500% 100%; transition: linear-gradient 1s ease-in-out; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), #ffffff, #ffffff, #ffffff, #ffffff); }
+.header__hood--action { border-radius: 25px; padding: 12px 20px 10px; font-family: "harmonia bold"; color: #fff; float: right; cursor: none; margin-top: 54.5px; background-size: 500% 100%; transition: background 1s ease-in-out, color 1s ease-in-out; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), #ffffff, #ffffff, #ffffff, #ffffff); }
 @media only screen and (max-width: 767px) { .header__hood--action { display: none; } }
-.header__hood--action:hover { color: #000; border-color: transparent; background-position: 100% 0; }
+.header__hood--action:hover { background-position: 100% 0; border-color: transparent; color: #000; }
 .header__hood--action:focus { outline: none; }
 .header__cellar { float: left; width: 100%; margin-top: 30vh; }
 @media only screen and (max-width: 767px) { .header__cellar { margin-top: 20vh; } }

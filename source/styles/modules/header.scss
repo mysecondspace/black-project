@@ -134,7 +134,7 @@
       cursor: none;
       margin-top: 54.5px;
       background-size: 500% 100%;
-      transition: linear-gradient $time * 5 ease-in-out;
+      transition: background $time * 5 ease-in-out, color $time * 5 ease-in-out,;
       background-image: linear-gradient(to right, transparent, transparent, $white, $white, $white, $white);
 
       @include media(phone) {
@@ -142,9 +142,9 @@
       }
 
       &:hover {
-        color: $black;
-        border-color: transparent;
         background-position: 100% 0;
+        border-color: transparent;
+        color: $black;
       }
 
       &:focus {
