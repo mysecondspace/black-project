@@ -23,8 +23,19 @@
       top: 0;
     }
 
-    &.scroll::before {
-      animation: background-in $time * 2 forwards;
+    &.scroll {
+      &::before {
+        animation: background-in $time * 2 forwards;
+      }
+
+      .header__hood--logo,
+      .header__hood--menu a {
+        height: auto;
+      }
+
+      .header__hood--action {
+        margin-top: 0;
+      }
     }
 
     // mobile menu burger button
@@ -123,7 +134,7 @@
       cursor: none;
       margin-top: 54.5px;
       background-size: 500% 100%;
-      transition: all $time * 5 ease-in-out;
+      transition: linear-gradient $time * 5 ease-in-out;
       background-image: linear-gradient(to right, transparent, transparent, $white, $white, $white, $white);
 
       @include media(phone) {

@@ -59,10 +59,10 @@
 }
 
 %biggest {
+  line-height: 1.1;
   font-family: $bold;
 
   &--one {
-    line-height: 1.4;
     font-size: em(40);
     padding-top: 10vh;
 
@@ -78,7 +78,6 @@
 
   &--two {
     width: 80%;
-    line-height: 1.4;
     font-size: em(60);
     padding-top: 10vh;
 
@@ -93,7 +92,6 @@
 
   &--three {
     width: 90%;
-    line-height: 1.3;
     font-size: em(80);
 
     @include media(phone) {

@@ -110,14 +110,14 @@ article { -ms-flex: 1 0 auto; flex: 1 0 auto; }
 @media only screen and (min-width: 2560px) { .modal ul li, .article__content ul li { margin-left: 50px; font-size: 1.5625em; } }
 .modal ul.none li, .article__content ul.none li { list-style-type: none; }
 
-.modal .big, .article__content .big { font-family: "harmonia bold"; }
-.modal .big--one, .article__content .big--one { line-height: 1.4; font-size: 2.5em; padding-top: 10vh; }
+.modal .big, .article__content .big { line-height: 1.1; font-family: "harmonia bold"; }
+.modal .big--one, .article__content .big--one { font-size: 2.5em; padding-top: 10vh; }
 @media only screen and (max-width: 767px) { .modal .big--one, .article__content .big--one { font-size: 1.375em; } }
 @media only screen and (min-width: 2560px) { .modal .big--one, .article__content .big--one { font-size: 3.125em; width: 80%; } }
-.modal .big--two, .article__content .big--two { width: 80%; line-height: 1.4; font-size: 3.75em; padding-top: 10vh; }
+.modal .big--two, .article__content .big--two { width: 80%; font-size: 3.75em; padding-top: 10vh; }
 @media only screen and (max-width: 767px) { .modal .big--two, .article__content .big--two { font-size: 2.1875em; } }
 @media only screen and (min-width: 2560px) { .modal .big--two, .article__content .big--two { font-size: 4.375em; } }
-.modal .big--three, .article__content .big--three { width: 90%; line-height: 1.3; font-size: 5em; }
+.modal .big--three, .article__content .big--three { width: 90%; font-size: 5em; }
 @media only screen and (max-width: 767px) { .modal .big--three, .article__content .big--three { font-size: 2.8125em; } }
 @media only screen and (min-width: 2560px) { .modal .big--three, .article__content .big--three { font-size: 5.625em; width: 80%; } }
 
@@ -152,8 +152,19 @@ form input:not(:last-of-type) { margin-bottom: 1vh; }
 .article section { min-height: 90vh; }
 .article section div > * { color: #fff; }
 .article section a { clear: both; }
-.article__line { width: 100%; display: -ms-flexbox; display: flex; padding-bottom: 2.5vh; -ms-flex-align: baseline; align-items: baseline; -ms-flex-pack: justify; justify-content: space-between; border-bottom: 1px solid #fff; }
+.article .background { position: relative; }
+.article .background::before { content: ''; position: absolute; height: 100%; width: 120%; left: -10%; top: 0; }
+@media only screen and (max-width: 767px) { .article .background::before { left: -5.5%; width: 111%; } }
+@media only screen and (min-width: 2560px) { .article .background::before { left: -17.5%; width: 135%; } }
+.article .background * { position: inherit; }
+.article .background--white::before { background-color: #fff; }
+.article .background--white p:last-of-type { border-top: 1px solid #000; }
+.article .background--white * { color: #000; }
+.article .background--black::before { background-color: #000; }
+.article .background--black * { color: #fff; }
+.article__line { width: 100%; display: -ms-flexbox; display: flex; padding: 2.5vh 0; position: relative; -ms-flex-align: baseline; align-items: baseline; -ms-flex-pack: justify; justify-content: space-between; }
 @media only screen and (max-width: 767px) { .article__line { padding-bottom: 1vh; } }
+.article__line::after { content: ''; width: 100%; height: 1px; background: #fff; position: absolute; bottom: 0; left: 0; }
 .article__line p { font-family: "harmonia bold"; }
 .article__line p:first-of-type { font-size: 6.25em; }
 @media only screen and (max-width: 767px) { .article__line p:first-of-type { font-size: 4.375em; } }
@@ -169,7 +180,7 @@ form input:not(:last-of-type) { margin-bottom: 1vh; }
 .article__content a { display: -ms-grid; display: grid; text-align: center; }
 @media only screen and (min-width: 1024px) { .article__content a { width: -webkit-fit-content; width: -moz-fit-content; width: fit-content; } }
 .article__content a img { margin: 0 auto; transform: scale(0.5); }
-.article__content a span { margin-top: 30px; font-family: "harmonia bold"; text-transform: uppercase; }
+.article__content a span { opacity: .5; margin-top: 30px; font-size: 0.75em; font-family: "harmonia bold"; text-transform: uppercase; }
 .article__content .button { position: relative; border-top: 1px solid; padding-right: 5%; padding-top: 1vh; margin-top: 10vh; float: left; width: 95%; }
 @media only screen and (max-width: 767px) { .article__content .button { padding-right: 20%; margin-top: 5vh; width: 80%; } }
 .article__content .button::after { transition: 0.2s; transform: rotate(0); font-family: "harmonia light"; position: absolute; font-size: 1.875em; content: '+'; right: 0; top: 0; }
@@ -182,25 +193,17 @@ form input:not(:last-of-type) { margin-bottom: 1vh; }
 .article__content .light--one { font-size: 1.875em; }
 @media only screen and (max-width: 767px) { .article__content .light--one { font-size: 1.25em; } }
 @media only screen and (min-width: 2560px) { .article__content .light--one { font-size: 2.5em; } }
-.article__content .light--two { line-height: 1.4; font-size: 3.75em; }
+.article__content .light--two { line-height: 1.1; font-size: 3.75em; }
 @media only screen and (max-width: 767px) { .article__content .light--two { font-size: 2.5em; } }
 @media only screen and (min-width: 2560px) { .article__content .light--two { font-size: 4.375em; } }
-.article__content .background { position: relative; }
-.article__content .background::before { content: ''; position: absolute; height: 100%; width: 120%; left: -10%; top: 0; }
-@media only screen and (max-width: 767px) { .article__content .background::before { left: -5.5%; width: 111%; } }
-@media only screen and (min-width: 2560px) { .article__content .background::before { left: -17.5%; width: 135%; } }
-.article__content .background * { position: inherit; }
-.article__content .background--white::before { background-color: #fff; }
-.article__content .background--white p:last-of-type { border-top: 1px solid #000; }
-.article__content .background--white * { color: #000; }
-.article__content .background--black::before { background-color: #000; }
-.article__content .background--black * { color: #fff; }
 
 .header { z-index: 2; height: 100vh; }
 .header__hood { z-index: 2; width: 100%; display: -ms-flexbox; display: flex; padding: 2vh 0; }
 @media only screen and (min-width: 1024px) { .header__hood { position: fixed; } }
 .header__hood::before { content: ''; position: absolute; animation: background-out 0.4s forwards; height: 100%; width: 100%; left: 0; top: 0; }
 .header__hood.scroll::before { animation: background-in 0.4s forwards; }
+.header__hood.scroll .header__hood--logo, .header__hood.scroll .header__hood--menu a { height: auto; }
+.header__hood.scroll .header__hood--action { margin-top: 0; }
 .header__hood--button { position: absolute; display: none; width: 25px; right: 0; top: 1vh; }
 @media only screen and (max-width: 767px) { .header__hood--button { display: block; } }
 .header__hood--button.close { display: none; }
@@ -214,7 +217,7 @@ form input:not(:last-of-type) { margin-bottom: 1vh; }
 @media only screen and (max-width: 767px) { .header__hood--menu li a { font-size: 1.625em; height: auto; width: auto; } }
 @media only screen and (min-width: 1024px) { .header__hood--menu li a { -ms-flex-pack: center; justify-content: center; -ms-flex-align: center; align-items: center; } }
 .header__hood--menu li a:hover { border-bottom: 0; }
-.header__hood--action { border-radius: 25px; padding: 12px 20px 10px; font-family: "harmonia bold"; color: #fff; float: right; cursor: none; margin-top: 54.5px; background-size: 500% 100%; transition: all 1s ease-in-out; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), #ffffff, #ffffff, #ffffff, #ffffff); }
+.header__hood--action { border-radius: 25px; padding: 12px 20px 10px; font-family: "harmonia bold"; color: #fff; float: right; cursor: none; margin-top: 54.5px; background-size: 500% 100%; transition: linear-gradient 1s ease-in-out; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), #ffffff, #ffffff, #ffffff, #ffffff); }
 @media only screen and (max-width: 767px) { .header__hood--action { display: none; } }
 .header__hood--action:hover { color: #000; border-color: transparent; background-position: 100% 0; }
 .header__hood--action:focus { outline: none; }

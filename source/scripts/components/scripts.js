@@ -59,11 +59,11 @@ jQuery(function($) {
     }).on("resize", function() {
        winH = $(this).height();
     });
-
 });
 
 // toggle list
-var list = $(".toggle"), link = $(".button");
+var list = $(".toggle"),
+    link = $(".button");
 
 list.hide();
 link.click(function(e) {
